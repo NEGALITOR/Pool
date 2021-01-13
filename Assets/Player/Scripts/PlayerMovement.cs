@@ -5,11 +5,14 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody rb;
+    public Transform cam;
 
     public float pSpeed = 10f;
     public float jumpPower = 7f;
     public bool isGrounded = false;
 
+    public float turnSmoothTime = 0.1f;
+    float turnSmoothVelocity;
 
 
     private void Awake()
@@ -40,8 +43,20 @@ public class PlayerMovement : MonoBehaviour
         float hAxis = Input.GetAxis("Horizontal");
         float vAxis = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(hAxis, 0f, vAxis);
-        rb.AddForce(movement * pSpeed * Time.deltaTime, ForceMode.VelocityChange);
+        Vector3 direction = new Vector3(hAxis, 0f, vAxis).normalized;
+        //rb.AddForce(movementDir * pSpeed * Time.deltaTime, ForceMode.VelocityChange);
+
+
+        if (direction.magnitude >= 0.1f)
+        {
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            rb.AddForce(moveDir.normalized * pSpeed * Time.deltaTime, ForceMode.VelocityChange);
+        }
+
     }
 
     void Jump()
