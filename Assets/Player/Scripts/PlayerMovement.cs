@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform cam;
 
     public float pSpeed = 10f;
-    public float jumpPower = 7f;
+    public float jumpPower = 5f;
     public bool isGrounded = false;
 
     public float turnSmoothTime = 0.1f;
