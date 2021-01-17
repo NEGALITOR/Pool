@@ -428,8 +428,9 @@ GameObject:
   - component: {fileID: 661213925}
   - component: {fileID: 661213924}
   - component: {fileID: 661213923}
-  - component: {fileID: 661213922}
   - component: {fileID: 661213921}
+  - component: {fileID: 661213922}
+  - component: {fileID: 661213927}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -466,9 +467,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 963194228}
+  rCastJ: {fileID: 661213927}
   pSpeed: 10
   jumpPower: 5
-  isGrounded: 0
+  hInput: Horizontal
+  vInput: Vertical
   turnSmoothTime: 0.1
 --- !u!136 &661213923
 CapsuleCollider:
@@ -547,6 +550,25 @@ Transform:
   m_Father: {fileID: 371264779}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &661213927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661213920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d3733f808c165468947bd675a7c89b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHitObject: {fileID: 0}
+  sphereRadius: 0.5
+  maxSphereDist: 0.6
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  isGrounded: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,9 +747,10 @@ GameObject:
   - component: {fileID: 887800251}
   - component: {fileID: 887800250}
   - component: {fileID: 887800249}
-  - component: {fileID: 887800248}
   - component: {fileID: 887800247}
   - component: {fileID: 887800246}
+  - component: {fileID: 887800248}
+  - component: {fileID: 887800252}
   m_Layer: 3
   m_Name: Player 2
   m_TagString: Player
@@ -774,13 +797,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 887800245}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f59cbe18a699d844f845caae17938408, type: 3}
+  m_Script: {fileID: 11500000, guid: 5579988b11e6c044c8844eae28ef9bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 963194228}
+  rCastJ: {fileID: 887800252}
   pSpeed: 10
   jumpPower: 5
-  isGrounded: 0
+  hInput: Horizontal2
+  vInput: Vertical2
   turnSmoothTime: 0.1
 --- !u!23 &887800249
 MeshRenderer:
@@ -845,6 +870,25 @@ Transform:
   m_Father: {fileID: 371264779}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &887800252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887800245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d3733f808c165468947bd675a7c89b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHitObject: {fileID: 0}
+  sphereRadius: 0.5
+  maxSphereDist: 0.6
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  isGrounded: 0
 --- !u!1 &939250057
 GameObject:
   m_ObjectHideFlags: 3
@@ -1049,7 +1093,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.33240733, y: -0.000000028107637, z: 0.000000009906509, w: 0.9431359}
+  m_LocalRotation: {x: 0.33240733, y: 0.000000028107637, z: -0.000000009906509, w: 0.9431359}
   m_LocalPosition: {x: 0, y: 13, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1357,7 +1401,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189974713}
-  m_LocalRotation: {x: 0.3324073, y: -3e-45, z: 1e-45, w: 0.943136}
+  m_LocalRotation: {x: 0.3324073, y: 1e-45, z: -1e-45, w: 0.943136}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

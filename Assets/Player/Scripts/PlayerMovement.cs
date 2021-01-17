@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //Calls
     private Rigidbody rb;
     public Transform cam;
+    public RayCastJump rCastJ;
 
+    //Player Movement
     public float pSpeed = 10f;
     public float jumpPower = 5f;
-    public bool isGrounded = false;
-
+    public string hInput;
+    public string vInput;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
@@ -36,12 +39,13 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Jump();
+
     }
 
     void Move()
     {
-        float hAxis = Input.GetAxis("Horizontal");
-        float vAxis = Input.GetAxis("Vertical");
+        float hAxis = Input.GetAxis(hInput);
+        float vAxis = Input.GetAxis(vInput);
 
         Vector3 direction = new Vector3(hAxis, 0f, vAxis).normalized;
         //rb.AddForce(movementDir * pSpeed * Time.deltaTime, ForceMode.VelocityChange);
@@ -61,21 +65,21 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        if (isGrounded && Input.GetKeyUp(KeyCode.Space))
+        if (rCastJ.isGrounded && Input.GetKeyUp(KeyCode.Space))
         {
             rb.AddForce(new Vector3(0, jumpPower, 0) * 50, ForceMode.Acceleration);
-            isGrounded = false;
+            rCastJ.isGrounded = false;
         }
     }
 
 
     private void OnCollisionEnter(Collision collision)
     {
-        isGrounded = true;
+        
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        isGrounded = false;
+        
     }
 }
