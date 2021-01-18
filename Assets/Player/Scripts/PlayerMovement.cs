@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
+using kcp2k;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,35 +14,53 @@ public class PlayerMovement : MonoBehaviour
     //Player Movement
     public float pSpeed = 10f;
     public float jumpPower = 5f;
-    public string hInput;
-    public string vInput;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
+    //[HideInInspector]
+    public string hInput;
+    //[HideInInspector]
+    public string vInput;
+
+    //Online
+    public Mirror.NetworkManager NM;
+    public Mirror.NetworkIdentity NI;
+    public int playerNum;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        NM = FindObjectOfType<Mirror.NetworkManager>();
+        NI = FindObjectOfType<Mirror.NetworkIdentity>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        cam = Camera.main.transform;
+        
+        //Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void FixedUpdate()
     {
-        Move();
+        if (NI.isLocalPlayer)
+        {
+            Move();
+        }
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        Jump();
+        if (NI.isLocalPlayer)
+        {
+            Jump();
+        }
 
+        //Debug.Log(NM.numPlayers);
     }
 
     void Move()
@@ -72,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
             rCastJ.isGrounded = false;
         }
     }
-
+    
 
     private void OnCollisionEnter(Collision collision)
     {
