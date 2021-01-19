@@ -25,12 +25,13 @@ public class Portal : MonoBehaviour
         if (other.CompareTag("Player") && cooldown == true)
         {
             other.transform.position = otherPortal.transform.position + offSet;
+            cooldown = false;
             Invoke("CoolDown", 1.0f);
         }
     }
 
     void CoolDown()
     {
-        cooldown = false;
+        cooldown = true;
     }
 }
