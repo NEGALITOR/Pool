@@ -6,7 +6,7 @@ public class Portal : MonoBehaviour
 {
     public GameObject otherPortal;
     private bool cooldown = true;
-    private Vector3 offSet;
+    public Vector3 offSet;
     
     // Start is called before the first frame update
     void Start()
