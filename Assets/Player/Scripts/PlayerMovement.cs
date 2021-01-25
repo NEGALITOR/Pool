@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         NM = FindObjectOfType<Mirror.NetworkManager>();
         NI = FindObjectOfType<Mirror.NetworkIdentity>();
+
     }
 
     // Start is called before the first frame update
@@ -62,7 +63,6 @@ public class PlayerMovement : MonoBehaviour
 
         //Debug.Log(NM.numPlayers);
     }
-
     void Move()
     {
         float hAxis = Input.GetAxis(hInput);

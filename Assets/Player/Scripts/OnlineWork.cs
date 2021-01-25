@@ -6,6 +6,7 @@ namespace Mirror
 {
     public class OnlineWork : NetworkManager
     {
+        public Mirror.NetworkManager NM;
         public Transform pOne;
         public Transform pTwo;
 
@@ -21,5 +22,7 @@ namespace Mirror
             // call base functionality (actually destroys the player)
             base.OnServerDisconnect(conn);
         }
+
+
     }
 }
