@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         cam = Camera.main.transform;
-        
+
         //Cursor.visible = false;
         //Cursor.lockState = CursorLockMode.Locked;
     }

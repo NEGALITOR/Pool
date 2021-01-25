@@ -9,11 +9,12 @@ namespace Mirror
         public Mirror.NetworkManager NM;
         public Transform pOne;
         public Transform pTwo;
+        public GameObject player;
 
         public override void OnServerAddPlayer(NetworkConnection conn)
         {
             Transform start = numPlayers == 0 ? pOne : pTwo;
-            GameObject player = Instantiate(playerPrefab, start.position, start.rotation);
+            player = Instantiate(playerPrefab, start.position, start.rotation);
             NetworkServer.AddPlayerForConnection(conn, player);
         }
 
