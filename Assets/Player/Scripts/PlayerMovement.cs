@@ -25,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
     //Online
     public Mirror.NetworkManager NM;
     public Mirror.NetworkIdentity NI;
-    public int playerNum;
 
     private void Awake()
     {
@@ -91,16 +90,5 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(new Vector3(0, jumpPower, 0) * 50, ForceMode.Acceleration);
             rCastJ.isGrounded = false;
         }
-    }
-    
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        
     }
 }
