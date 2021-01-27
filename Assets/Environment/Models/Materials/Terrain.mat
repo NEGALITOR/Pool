@@ -7,21 +7,20 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ground
-  m_Shader: {fileID: 4800000, guid: 0406db5a14f94604a8c57ccfbc9f3b46, type: 3}
+  m_Name: Terrain
+  m_Shader: {fileID: -6465566751694194690, guid: 456f227beaab7a449891d8896d699111, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_0c110f58c94a4ee8bc3d3186c73b527f:
-        m_Texture: {fileID: 2800000, guid: 564a9205cf58f2a44b59828f6d045b62, type: 3}
+        m_Texture: {fileID: 2800000, guid: c3e656f44c8bab446871af2ec2d17aaf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -81,64 +80,45 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_576aa2719c574cc3b78aadfa2a9b160a: 0
-    - Vector1_75976a5c26e0467ca72244c385ac728c: 0
+    - Vector1_576aa2719c574cc3b78aadfa2a9b160a: 1
+    - Vector1_75976a5c26e0467ca72244c385ac728c: 1
     - Vector1_8cef4d9915f64b5eb6b86e5b3d99e4af: -1
-    - Vector1_eb5cfaa5527749809a3e19fa3d6395be: 0
+    - Vector1_eb5cfaa5527749809a3e19fa3d6395be: 1
     - _AlphaClip: 0
     - _Blend: 0
-    - _BlendOp: 0
     - _BumpScale: 1
-    - _CameraFadingEnabled: 0
-    - _CameraFarFadeDistance: 2
-    - _CameraNearFadeDistance: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _ColorMode: 0
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DistortionBlend: 0.5
-    - _DistortionEnabled: 0
-    - _DistortionStrength: 1
-    - _DistortionStrengthScaled: 0.1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _FlipbookBlending: 0
-    - _FlipbookMode: 0
-    - _GlossMapScale: 1
-    - _Glossiness: 1
+    - _GlossMapScale: 0
+    - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
-    - _Mode: 0
     - _OcclusionStrength: 1
-    - _Parallax: 0.02
+    - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
-    - _SoftParticlesEnabled: 0
-    - _SoftParticlesFarFadeDistance: 1
-    - _SoftParticlesNearFadeDistance: 0
-    - _SpecularHighlights: 0
+    - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_dd91197c89414fc7b4e11b2843846e23: {r: 0, g: 0, b: 0, a: 0}
-    - Color_ea8bdb63318b4654908b4a16cdb0de1b: {r: 0, g: 0, b: 0, a: 0}
-    - _BaseColor: {r: 0.026845843, g: 0.8584906, b: 0, a: 1}
-    - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
-    - _CameraFadeParams: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0, g: 0.8679245, b: 0.025273314, a: 1}
+    - Color_dd91197c89414fc7b4e11b2843846e23: {r: 1, g: 1, b: 1, a: 0}
+    - Color_ea8bdb63318b4654908b4a16cdb0de1b: {r: 0, g: 0.5929899, b: 1, a: 0}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &8824995355855276779
+--- !u!114 &4534654154328535087
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

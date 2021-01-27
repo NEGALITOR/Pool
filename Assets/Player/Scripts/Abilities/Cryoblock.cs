@@ -7,7 +7,7 @@ public class Cryoblock : MonoBehaviour
     private RayCastJump RCJ;
     private RayCastForward RCF;
     public Animator animator;
-
+    private GameObject instant;
     public GameObject cryoBlock;
     private bool charge = false;
     public GameObject[] blockCount;
@@ -32,15 +32,19 @@ public class Cryoblock : MonoBehaviour
         {
             if (RCJ.currentHitObject != null && ((RCJ.currentHitObject.CompareTag("CryoPool") || RCJ.currentHitObject.CompareTag("Water")) && Input.GetKeyDown(KeyCode.E)))
             {
+                
+                instant = Instantiate(cryoBlock, transform.position - new Vector3(0, 1.1f, 0), transform.rotation);
+                animator = instant.GetComponent<Animator>();
+                animator.SetBool("isActive", true);
+                charge = false;
+
                 blockCount = GameObject.FindGameObjectsWithTag("CryoBlock");
                 foreach (GameObject block in blockCount)
                 {
                     animator.SetBool("isActive", false);
                     Destroy(block);
                 }
-                animator.SetBool("isActive", true);
-                Instantiate(cryoBlock, transform.position - new Vector3(0, 1.1f, 0), transform.rotation);
-                charge = false;
+                
             }
 
         }
