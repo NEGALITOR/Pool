@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class Cryoblock : MonoBehaviour
 {
-    private RayCastJump RCJ;
-    private RayCastForward RCF;
-    public Animator animator;
-    private GameObject instant;
+    public RayCastJump RCJ;
+    public RayCastForward RCF;
+    public GameObject player;
     public GameObject cryoBlock;
+    public GameObject[] spawnedblock;
     private bool charge = false;
-    public GameObject[] blockCount;
+
+    private Animation anim;
 
     // Start is called before the first frame update
     void Start()
     {
-        RCJ = GetComponent<RayCastJump>();
-        RCF = GetComponent<RayCastForward>();
-        animator = cryoBlock.GetComponent<Animator>();
+        RCJ = player.GetComponent<RayCastJump>();
+        RCF = player.GetComponent<RayCastForward>();
+        anim = GetComponent<Animation>();
     }
 
     // Update is called once per frame
@@ -32,19 +33,17 @@ public class Cryoblock : MonoBehaviour
         {
             if (RCJ.currentHitObject != null && ((RCJ.currentHitObject.CompareTag("CryoPool") || RCJ.currentHitObject.CompareTag("Water")) && Input.GetKeyDown(KeyCode.E)))
             {
-                
-                
-                //animator = instant.GetComponent<Animator>();
+                Instantiate(cryoBlock, player.transform.position - new Vector3(0, 1.1f, 0), player.transform.rotation);
+                anim.Play("Cryoblock Emerge");
                 
 
-                blockCount = GameObject.FindGameObjectsWithTag("CryoBlock");
-                foreach (GameObject block in blockCount)
+                spawnedblock = GameObject.FindGameObjectsWithTag("CryoBlock");
+                foreach (GameObject block in spawnedblock)
                 {
-                    animator.SetBool("isActive", false);
+                    anim.Play("Cryoblock Submerge");
                     Destroy(block);
                 }
-                animator.SetBool("isActive", true);
-                Instantiate(cryoBlock, transform.position - new Vector3(0, 1.1f, 0), transform.rotation);
+
                 charge = false;
             }
 
@@ -52,6 +51,7 @@ public class Cryoblock : MonoBehaviour
         else
         {
             charge = false;
+            return;
         }
     }
 }

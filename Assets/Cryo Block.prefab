@@ -12,7 +12,10 @@ GameObject:
   - component: {fileID: 3442859824699100178}
   - component: {fileID: 3442859824699100179}
   - component: {fileID: 3442859824699100176}
-  - component: {fileID: 3442859824699100177}
+  - component: {fileID: -2087356990581142077}
+  - component: {fileID: -5756356200017731660}
+  - component: {fileID: -8653262373109943832}
+  - component: {fileID: 392874224328003659}
   m_Layer: 0
   m_Name: Cryo Block
   m_TagString: CryoBlock
@@ -96,7 +99,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &3442859824699100177
+--- !u!136 &-2087356990581142077
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3442859824699100182}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 0
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &-5756356200017731660
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -115,3 +132,37 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &-8653262373109943832
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3442859824699100182}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 3257dd8e69d81c84f862198e1300ad9d, type: 2}
+  - {fileID: 7400000, guid: 0d87419abf4b99547955d9b96f050d74, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &392874224328003659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3442859824699100182}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f704bef7a02ad0e419f509174cd60329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RCJ: {fileID: 0}
+  RCF: {fileID: 0}
+  player: {fileID: 556116503214687302, guid: 422adf4c9cb696f488bc6f34f53175ae, type: 3}
+  cryoBlock: {fileID: 3442859824699100182}
+  spawnedblock: []
