@@ -13,6 +13,7 @@ TagManager:
   - Water
   - CryoBlock
   - BreakableWall
+  - AcidPool
   layers:
   - Default
   - TransparentFX

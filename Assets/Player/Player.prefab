@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -8049778937171740227}
   - component: {fileID: 3903394100459775625}
   - component: {fileID: 114997864165982456}
+  - component: {fileID: 4013294557351025058}
   - component: {fileID: 2178408983825432187}
   - component: {fileID: -721537479261049027}
   m_Layer: 3
@@ -192,9 +193,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RCJ: {fileID: 0}
-  RCF: {fileID: 0}
   cryoBlock: {fileID: 3442859824699100182, guid: 64700a8cb9bcff14d846f15d030c3b8b, type: 3}
   spawnedBlock: []
+  charge: 0
 --- !u!114 &114997864165982456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +212,21 @@ MonoBehaviour:
   RCJ: {fileID: 0}
   destroyedVer: {fileID: 3325297170840455494, guid: ab02f1c6d15a4a74196a1892b2fb405c, type: 3}
   solidVer: {fileID: 2757682374613250720, guid: f3f81e8be522a18459e7640818a605bc, type: 3}
+  charge: 0
+--- !u!114 &4013294557351025058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556116503214687302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 376c826a6efd383498bbc0373c3c32e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RCJ: {fileID: 0}
+  spawnPoint: {fileID: 82424632907349011, guid: 67e6be8a5354a5c49807c6595a61e91a, type: 3}
 --- !u!114 &2178408983825432187
 MonoBehaviour:
   m_ObjectHideFlags: 0

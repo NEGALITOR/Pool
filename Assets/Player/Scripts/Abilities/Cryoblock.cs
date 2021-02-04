@@ -6,7 +6,6 @@ using System;
 public class Cryoblock : MonoBehaviour
 {
     public RayCastJump RCJ;
-    public RayCastForward RCF;
     public GameObject cryoBlock;
     public List<GameObject> spawnedBlock = new List<GameObject>{ null };
     public bool charge = false;
@@ -15,7 +14,6 @@ public class Cryoblock : MonoBehaviour
     void Start()
     {
         RCJ = FindObjectOfType<RayCastJump>();
-        RCF = FindObjectOfType<RayCastForward>();
     }
 
     // Update is called once per frame
