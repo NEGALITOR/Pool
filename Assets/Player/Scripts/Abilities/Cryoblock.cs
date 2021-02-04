@@ -1,24 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Cryoblock : MonoBehaviour
 {
     public RayCastJump RCJ;
     public RayCastForward RCF;
-    public GameObject player;
     public GameObject cryoBlock;
-    public GameObject[] spawnedblock;
-    private bool charge = false;
-
-    private Animation anim;
+    public List<GameObject> spawnedBlock = new List<GameObject>{ null };
+    public bool charge = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        RCJ = player.GetComponent<RayCastJump>();
-        RCF = player.GetComponent<RayCastForward>();
-        anim = GetComponent<Animation>();
+        RCJ = FindObjectOfType<RayCastJump>();
+        RCF = FindObjectOfType<RayCastForward>();
     }
 
     // Update is called once per frame
@@ -33,16 +30,21 @@ public class Cryoblock : MonoBehaviour
         {
             if (RCJ.currentHitObject != null && ((RCJ.currentHitObject.CompareTag("CryoPool") || RCJ.currentHitObject.CompareTag("Water")) && Input.GetKeyDown(KeyCode.E)))
             {
-                Instantiate(cryoBlock, player.transform.position - new Vector3(0, 1.1f, 0), player.transform.rotation);
-                anim.Play("Cryoblock Emerge");
-                
-
-                spawnedblock = GameObject.FindGameObjectsWithTag("CryoBlock");
-                foreach (GameObject block in spawnedblock)
+                foreach (GameObject block in spawnedBlock)
                 {
-                    anim.Play("Cryoblock Submerge");
-                    Destroy(block);
+                    IEnumerator Sub()
+                    {
+                        spawnedBlock[0].GetComponent<Animator>().SetBool("isActive", true);
+                        yield return new WaitForSeconds(2f); //spawnedBlock[0].GetComponent<Animation>()["Cryoblock Submerge"].length
+                        Destroy(block);
+                    }
+
+                    StartCoroutine(Sub());
                 }
+                
+                spawnedBlock.Insert(0, Instantiate(cryoBlock, transform.position - new Vector3(0, 1.5f, 0), transform.rotation));
+                spawnedBlock.RemoveAll(spawnedBlock => spawnedBlock == null);
+                spawnedBlock[0].GetComponent<Animator>().SetBool("isActive", false);
 
                 charge = false;
             }
@@ -53,5 +55,8 @@ public class Cryoblock : MonoBehaviour
             charge = false;
             return;
         }
+
     }
+
+    
 }

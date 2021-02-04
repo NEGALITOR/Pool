@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 556116503214687297}
   - component: {fileID: -8049778937171740227}
   - component: {fileID: 3903394100459775625}
+  - component: {fileID: 114997864165982456}
   - component: {fileID: 2178408983825432187}
   - component: {fileID: -721537479261049027}
   m_Layer: 3
@@ -118,8 +119,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!114 &556116503214687300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,10 +175,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHitObject: {fileID: 0}
   sphereRadius: 0.5
-  maxSphereDist: 0.5
+  maxRaycastDist: 1.5
   layerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 128
 --- !u!114 &3903394100459775625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,6 +195,22 @@ MonoBehaviour:
   RCF: {fileID: 0}
   cryoBlock: {fileID: 3442859824699100182, guid: 64700a8cb9bcff14d846f15d030c3b8b, type: 3}
   spawnedBlock: []
+--- !u!114 &114997864165982456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556116503214687302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f86fedf70f98d464a96c94270756dcd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RCF: {fileID: 0}
+  RCJ: {fileID: 0}
+  destroyedVer: {fileID: 3325297170840455494, guid: ab02f1c6d15a4a74196a1892b2fb405c, type: 3}
+  solidVer: {fileID: 2757682374613250720, guid: f3f81e8be522a18459e7640818a605bc, type: 3}
 --- !u!114 &2178408983825432187
 MonoBehaviour:
   m_ObjectHideFlags: 0

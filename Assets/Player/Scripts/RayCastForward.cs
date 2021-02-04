@@ -6,7 +6,7 @@ public class RayCastForward : MonoBehaviour
 {
     public GameObject currentHitObject;
     public float sphereRadius;
-    public float maxSphereDist;
+    public float maxRaycastDist;
     public LayerMask layerMask;
     private Vector3 sphereOrigin;
     private Vector3 sphereDir;
@@ -22,17 +22,18 @@ public class RayCastForward : MonoBehaviour
     void Update()
     {
         sphereOrigin = transform.position;
-        sphereDir = transform.forward;
+        sphereDir = transform.TransformDirection(Vector3.forward);
         RaycastHit hit;
 
-        if (Physics.SphereCast(sphereOrigin, sphereRadius, sphereDir, out hit, maxSphereDist, layerMask, QueryTriggerInteraction.UseGlobal))
+        if (Physics.Raycast(sphereOrigin, sphereDir, out hit, maxRaycastDist, layerMask, QueryTriggerInteraction.UseGlobal)) //Physics.SphereCast(sphereOrigin, sphereRadius, sphereDir, out hit, maxSphereDist, layerMask, QueryTriggerInteraction.UseGlobal)
         {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             currentHitObject = hit.transform.gameObject;
             currentHitDistance = hit.distance;
         }
         else
         {
-            currentHitDistance = maxSphereDist;
+            currentHitDistance = maxRaycastDist;
             currentHitObject = null;
         }
 
@@ -41,7 +42,5 @@ public class RayCastForward : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Debug.DrawLine(sphereOrigin, sphereOrigin + sphereDir * currentHitDistance);
-        Gizmos.DrawWireSphere(sphereOrigin + sphereDir * currentHitDistance, sphereRadius);
     }
 }
