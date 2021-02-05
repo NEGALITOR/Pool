@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RCJ: {fileID: 0}
-  cryoBlock: {fileID: 3442859824699100182, guid: 64700a8cb9bcff14d846f15d030c3b8b, type: 3}
+  cryoBlock: {fileID: 1092938642387408339, guid: c2ead1fb6980ae448abe574a4b595c15, type: 3}
   spawnedBlock: []
   charge: 0
 --- !u!114 &114997864165982456
@@ -227,6 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RCJ: {fileID: 0}
   spawnPoint: {fileID: 82424632907349011, guid: 67e6be8a5354a5c49807c6595a61e91a, type: 3}
+  charge: 0
 --- !u!114 &2178408983825432187
 MonoBehaviour:
   m_ObjectHideFlags: 0
