@@ -28,14 +28,14 @@ public class CameraManager : MonoBehaviour
         pOneCam = GameObject.Find("PlayerOneCam");
         pTwoCam = GameObject.Find("PlayerTwoCam");
         cmflOne = pOneCam.GetComponent<CinemachineFreeLook>();
-        cmflTwo = pOneCam.GetComponent<CinemachineFreeLook>();
+        cmflTwo = pTwoCam.GetComponent<CinemachineFreeLook>();
     }
 
     // Update is called once per frame
     void Update()
     {
         PlayerCamera();
-        
+
     }
 
     public void PlayerCamera()
@@ -46,21 +46,17 @@ public class CameraManager : MonoBehaviour
             gameObject.GetComponent<AudioListener>().enabled = false;
         }
 
-        if (!pOneCam.activeInHierarchy || !pTwoCam.activeInHierarchy)
-        {
-            return;
-        }
-        if (NM.numPlayers == 1)
+        if (gameObject.GetComponentInParent<Mirror.NetworkIdentity>().netId == 6)
         {
             pTwoCam.SetActive(false);
-            //cmflOne.m_Follow = OW.player.transform;
-            cmflOne.m_LookAt = OW.player.transform;
+            cmflOne.m_Follow = GameObject.Find("Environment 1").transform;
+            cmflOne.m_LookAt = gameObject.GetComponentInParent<Rigidbody>().transform;
         }
-        else if (NM.numPlayers == 2)
+        else if (gameObject.GetComponentInParent<Mirror.NetworkIdentity>().netId == 7)
         {
             pOneCam.SetActive(false);
-            //cmflTwo.m_Follow = OW.player.transform;
-            cmflOne.m_LookAt = OW.player.transform;
+            cmflTwo.m_Follow = GameObject.Find("Environment 2").transform;
+            cmflTwo.m_LookAt = gameObject.GetComponentInParent<Rigidbody>().transform;
         }
         else
         {

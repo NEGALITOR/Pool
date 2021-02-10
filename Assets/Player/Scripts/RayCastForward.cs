@@ -38,9 +38,4 @@ public class RayCastForward : MonoBehaviour
         }
 
     }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-    }
 }

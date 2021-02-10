@@ -14,7 +14,7 @@ public class Cryoblock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RCJ = FindObjectOfType<RayCastJump>();
+        RCJ = GetComponent<RayCastJump>();
     }
 
     // Update is called once per frame

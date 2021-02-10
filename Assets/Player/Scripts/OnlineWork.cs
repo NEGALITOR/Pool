@@ -6,7 +6,7 @@ namespace Mirror
 {
     public class OnlineWork : NetworkManager
     {
-        public Mirror.NetworkManager NM;
+        //public Mirror.NetworkManager NM;
         public Transform pOne;
         public Transform pTwo;
         public GameObject player;

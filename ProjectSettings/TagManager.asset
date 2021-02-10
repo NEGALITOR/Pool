@@ -14,6 +14,10 @@ TagManager:
   - CryoBlock
   - BreakableWall
   - AcidPool
+  - Chest 1
+  - Chest 2
+  - Door 1
+  - Door 2
   layers:
   - Default
   - TransparentFX
@@ -24,7 +28,7 @@ TagManager:
   - Pool
   - Solid Wall
   - Broken Wall
-  - 
+  - Chest
   - 
   - 
   - 

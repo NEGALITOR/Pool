@@ -14,8 +14,8 @@ public class Strength : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RCF = FindObjectOfType<RayCastForward>();
-        RCJ = FindObjectOfType<RayCastJump>();
+        RCF = GetComponent<RayCastForward>();
+        RCJ = GetComponent<RayCastJump>();
     }
 
     // Update is called once per frame
