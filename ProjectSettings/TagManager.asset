@@ -18,6 +18,7 @@ TagManager:
   - Chest 2
   - Door 1
   - Door 2
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

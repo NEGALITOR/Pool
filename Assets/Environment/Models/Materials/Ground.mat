@@ -81,9 +81,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_21f7514c97f54175806ea2f33b06ca12: 5
     - Vector1_576aa2719c574cc3b78aadfa2a9b160a: 0
+    - Vector1_5c253b2d28e04d45a9cfe52c7d23ca9b: 0.1
     - Vector1_75976a5c26e0467ca72244c385ac728c: 0
     - Vector1_8cef4d9915f64b5eb6b86e5b3d99e4af: -1
+    - Vector1_b98e9e887c2742fc9bf549b153c960e5: 1
+    - Vector1_cf62af1d631a40b59dcd8d8f7656da98: 7
     - Vector1_eb5cfaa5527749809a3e19fa3d6395be: 0
     - _AlphaClip: 0
     - _Blend: 0
@@ -129,7 +133,9 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_dd91197c89414fc7b4e11b2843846e23: {r: 0, g: 0, b: 0, a: 0}
+    - Color_ded5eab3059e4d6f85bf94383c58e6aa: {r: 0, g: 0.5803922, b: 1, a: 1}
     - Color_ea8bdb63318b4654908b4a16cdb0de1b: {r: 0, g: 0, b: 0, a: 0}
+    - Color_fab4b1a9939a48d69910a617b37ed8a6: {r: 0, g: 0.2196078, b: 1.6, a: 1}
     - _BaseColor: {r: 0.026845843, g: 0.8584906, b: 0, a: 1}
     - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: 0, b: 0, a: 0}

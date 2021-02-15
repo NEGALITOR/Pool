@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +6,8 @@ using Cinemachine;
 
 public class CameraManagerTwo : MonoBehaviour
 {
-    public Mirror.NetworkIdentity NI;
-    public Mirror.OnlineWork OW;
+    public static CameraManagerTwo CMT;
+    private PhotonView PV;
 
     public CinemachineFreeLook cmflOne;
     public CinemachineFreeLook cmflTwo;
@@ -18,38 +19,31 @@ public class CameraManagerTwo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        NI = GetComponent<Mirror.NetworkIdentity>();
-        OW = FindObjectOfType<Mirror.OnlineWork>();
-
+        PV = GetComponent<PhotonView>();
         pOneCam = GameObject.Find("PlayerOneCam");
         pTwoCam = GameObject.Find("PlayerTwoCam");
         cmflOne = pOneCam.GetComponent<CinemachineFreeLook>();
         cmflTwo = pTwoCam.GetComponent<CinemachineFreeLook>();
-        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
-            players.Add(player);
     }
 
 
     private void Update()
     {
-
-        if (NI.isLocalPlayer)
+        if (PV.IsMine)
         {
-            
-
-            if (gameObject.GetComponent<Mirror.NetworkIdentity>().netId == players[0].GetComponent<Mirror.NetworkIdentity>().netId)
+            if (PhotonNetwork.LocalPlayer.UserId == PhotonNetwork.PlayerList[0].UserId)
             {
                 cmflOne.m_Priority = 2;
                 cmflTwo.m_Priority = 1;
                 cmflOne.m_Follow = GameObject.Find("Environment 1").transform;
-                cmflOne.m_LookAt = players[0].transform;
+                cmflOne.m_LookAt = gameObject.transform;
             }
-            else if (gameObject.GetComponent<Mirror.NetworkIdentity>().netId == players[1].GetComponent<Mirror.NetworkIdentity>().netId)
+            else if (PhotonNetwork.LocalPlayer.UserId == PhotonNetwork.PlayerList[1].UserId)
             {
                 cmflOne.m_Priority = 1;
                 cmflTwo.m_Priority = 2;
                 cmflTwo.m_Follow = GameObject.Find("Environment 2").transform;
-                cmflTwo.m_LookAt = players[1].transform;
+                cmflTwo.m_LookAt = gameObject.transform;
             }
         }
     }

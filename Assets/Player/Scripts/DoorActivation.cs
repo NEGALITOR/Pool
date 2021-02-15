@@ -24,7 +24,7 @@ public class DoorActivation : MonoBehaviour
     {
         if (isActive)
         {
-            if (RCF.currentHitObject != null && Input.GetKeyUp(KeyCode.E))
+            if (RCF.currentHitObject != null && RCF.currentHitObject.layer == LayerMask.NameToLayer("Chest") &&  Input.GetKeyUp(KeyCode.E))
             {
                 DoorCheck();
                 StartCoroutine(DoorRotation());

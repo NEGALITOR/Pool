@@ -1,12 +1,13 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
-using kcp2k;
 
 public class PlayerMovement : MonoBehaviour
 {
     //Calls
+    private PhotonView PV;
     private Rigidbody rb;
     public Transform cam;
     public RayCastJump rCastJ;
@@ -22,15 +23,10 @@ public class PlayerMovement : MonoBehaviour
     //[HideInInspector]
     public string vInput;
 
-    //Online
-    public Mirror.NetworkManager NM;
-    public Mirror.NetworkIdentity NI;
-
     private void Awake()
     {
+        PV = GetComponent<PhotonView>();
         rb = GetComponent<Rigidbody>();
-        NM = FindObjectOfType<Mirror.NetworkManager>();
-        NI = FindObjectOfType<Mirror.NetworkIdentity>();
 
     }
 
@@ -42,26 +38,27 @@ public class PlayerMovement : MonoBehaviour
         //Cursor.visible = false;
         //Cursor.lockState = CursorLockMode.Locked;
     }
-
     private void FixedUpdate()
     {
-        if (NI.isLocalPlayer)
+        if (!PV.IsMine)
         {
-            Move();
+            return;
         }
-        
+        Move();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (NI.isLocalPlayer)
+        if (!PV.IsMine)
         {
-            Jump();
+            return;
         }
+        Jump();
 
-        //Debug.Log(NM.numPlayers);
     }
+
     void Move()
     {
         float hAxis = Input.GetAxis(hInput);
