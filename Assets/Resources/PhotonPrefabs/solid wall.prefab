@@ -14,8 +14,6 @@ GameObject:
   - component: {fileID: 1511043411630649998}
   - component: {fileID: -647351392685570518}
   - component: {fileID: 1163975096338048581}
-  - component: {fileID: -7460325081449557249}
-  - component: {fileID: -5392294850716404077}
   m_Layer: 7
   m_Name: solid wall
   m_TagString: BreakableWall
@@ -137,37 +135,3 @@ MonoBehaviour:
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &-7460325081449557249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2757682374613250720}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd05baaba7755fa47addd6cd3ac7106a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PV: {fileID: 0}
-  BCF: {fileID: 0}
-  charge: 0
---- !u!114 &-5392294850716404077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2757682374613250720}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4c2a98cf6fb43b439fcfbc6281a71c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHitObject: {fileID: 0}
-  boxHeight: {x: 0, y: 0, z: 0.75}
-  boxRadius: {x: 10, y: 10, z: 0.5}
-  maxDistance: 1.5
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 8

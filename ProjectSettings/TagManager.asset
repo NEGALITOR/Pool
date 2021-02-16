@@ -19,6 +19,7 @@ TagManager:
   - Door 1
   - Door 2
   - SpawnPoint
+  - Pushable
   layers:
   - Default
   - TransparentFX
@@ -30,8 +31,8 @@ TagManager:
   - Solid Wall
   - Broken Wall
   - Chest
-  - 
-  - 
+  - Environment
+  - Pushable
   - 
   - 
   - 

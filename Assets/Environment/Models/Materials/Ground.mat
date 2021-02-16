@@ -136,7 +136,7 @@ Material:
     - Color_ded5eab3059e4d6f85bf94383c58e6aa: {r: 0, g: 0.5803922, b: 1, a: 1}
     - Color_ea8bdb63318b4654908b4a16cdb0de1b: {r: 0, g: 0, b: 0, a: 0}
     - Color_fab4b1a9939a48d69910a617b37ed8a6: {r: 0, g: 0.2196078, b: 1.6, a: 1}
-    - _BaseColor: {r: 0.026845843, g: 0.8584906, b: 0, a: 1}
+    - _BaseColor: {r: 0.09611701, g: 0.6981132, b: 0, a: 1}
     - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0, g: 0.8679245, b: 0.025273314, a: 1}

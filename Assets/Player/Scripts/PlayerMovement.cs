@@ -16,7 +16,9 @@ public class PlayerMovement : MonoBehaviour
     public float pSpeed = 10f;
     public float jumpPower = 5f;
     public float turnSmoothTime = 0.1f;
-    float turnSmoothVelocity;
+    public float turnSmoothVelocity;
+    public Vector3 direction;
+    public bool isJumping = false;
 
     //[HideInInspector]
     public string hInput;
@@ -27,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     {
         PV = GetComponent<PhotonView>();
         rb = GetComponent<Rigidbody>();
-
+        rCastJ = GetComponent<RayCastJump>();
     }
 
     // Start is called before the first frame update
@@ -61,10 +63,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        float hAxis = Input.GetAxis(hInput);
-        float vAxis = Input.GetAxis(vInput);
+        float hAxis = Input.GetAxisRaw(hInput);
+        float vAxis = Input.GetAxisRaw(vInput);
 
-        Vector3 direction = new Vector3(hAxis, 0f, vAxis).normalized;
+        direction = new Vector3(hAxis, 0f, vAxis).normalized;
         //rb.AddForce(movementDir * pSpeed * Time.deltaTime, ForceMode.VelocityChange);
 
 
@@ -86,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce(new Vector3(0, jumpPower, 0) * 50, ForceMode.Acceleration);
             rCastJ.isGrounded = false;
+            isJumping = true;
         }
     }
 }
