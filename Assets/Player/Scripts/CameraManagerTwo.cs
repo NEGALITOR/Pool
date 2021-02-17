@@ -35,14 +35,14 @@ public class CameraManagerTwo : MonoBehaviour
             {
                 cmflOne.m_Priority = 2;
                 cmflTwo.m_Priority = 1;
-                cmflOne.m_Follow = GameObject.Find("Environment 1").transform;
+                cmflOne.m_Follow = gameObject.transform;  //GameObject.Find("Environment 1").transform
                 cmflOne.m_LookAt = gameObject.transform;
             }
             else if (PhotonNetwork.LocalPlayer.UserId == PhotonNetwork.PlayerList[1].UserId)
             {
                 cmflOne.m_Priority = 1;
                 cmflTwo.m_Priority = 2;
-                cmflTwo.m_Follow = GameObject.Find("Environment 2").transform;
+                cmflTwo.m_Follow = gameObject.transform;  //GameObject.Find("Environment 2").transform
                 cmflTwo.m_LookAt = gameObject.transform;
             }
         }
