@@ -3121,7 +3121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1260287559
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3616,6 +3616,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1714414019619518750, guid: 02e86affe4e4cd14981a7a2ceb818895, type: 3}
+      propertyPath: viewIdField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714414019619518750, guid: 02e86affe4e4cd14981a7a2ceb818895, type: 3}
+      propertyPath: ObservedComponents.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3498359483397184772, guid: 02e86affe4e4cd14981a7a2ceb818895, type: 3}
       propertyPath: m_Name
       value: CharacterTwo
@@ -3850,6 +3858,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3542578732569257805, guid: 1f4116d4ee099f748b50fbdba678fed6, type: 3}
+      propertyPath: viewIdField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3498359483397184772, guid: 1f4116d4ee099f748b50fbdba678fed6, type: 3}
       propertyPath: m_Name
       value: CharacterOne
@@ -4227,8 +4239,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mySelectedCharacter: 0
   allCharacters:
-  - {fileID: 3498359483397184772, guid: 1f4116d4ee099f748b50fbdba678fed6, type: 3}
-  - {fileID: 3498359483397184772, guid: 02e86affe4e4cd14981a7a2ceb818895, type: 3}
+  - CharacterOne
+  - CharacterTwo
 --- !u!4 &1531864562
 Transform:
   m_ObjectHideFlags: 0

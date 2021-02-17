@@ -8,7 +8,7 @@ public class PlayerInfo : MonoBehaviour
 
     public int mySelectedCharacter;
 
-    public GameObject[] allCharacters;
+    public string[] allCharacters;
 
     private void OnEnable()
     {

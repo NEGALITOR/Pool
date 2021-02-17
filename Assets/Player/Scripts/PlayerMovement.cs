@@ -10,7 +10,9 @@ public class PlayerMovement : MonoBehaviour
     private PhotonView PV;
     private Rigidbody rb;
     public Transform cam;
-    public RayCastJump rCastJ;
+    public RayCastJump RCJ;
+    public RayCastForward RCF;
+    private AvatarSetup AS;
 
     //Player Movement
     public float pSpeed = 10f;
@@ -29,12 +31,14 @@ public class PlayerMovement : MonoBehaviour
     {
         PV = GetComponent<PhotonView>();
         rb = GetComponent<Rigidbody>();
-        rCastJ = GetComponent<RayCastJump>();
+        RCJ = GetComponent<RayCastJump>();
+        RCF = GetComponent<RayCastForward>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        AS = GetComponent<AvatarSetup>();
         cam = Camera.main.transform;
 
         //Cursor.visible = false;
@@ -58,6 +62,12 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
         Jump();
+        if (PhotonRoomCustomMatch.room.isGameLoaded)
+        {
+            WalkAnim();
+            PushAnim();
+            JumpAnim();
+        }
 
     }
 
@@ -72,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (direction.magnitude >= 0.1f)
         {
+
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
@@ -84,11 +95,58 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        if (rCastJ.isGrounded && Input.GetKeyUp(KeyCode.Space))
+        if (RCJ.isGrounded && Input.GetKeyUp(KeyCode.Space))
         {
             rb.AddForce(new Vector3(0, jumpPower, 0) * 50, ForceMode.Acceleration);
-            rCastJ.isGrounded = false;
+            RCJ.isGrounded = false;
             isJumping = true;
+        }
+    }
+
+    void WalkAnim()
+    {
+        if (RCJ.isGrounded && direction.magnitude >= 0.1f)
+        {
+            AS.anim.SetBool("isWalking", true);
+        }
+        else
+        {
+            AS.anim.SetBool("isWalking", false);
+        }
+    }
+
+    void JumpAnim()
+    {
+        if (!RCJ.isGrounded && !isJumping)
+        {
+            AS.anim.SetBool("isJumping", false);
+        }
+        else if (!RCJ.isGrounded && isJumping)
+        {
+            AS.anim.SetBool("isJumping", true);
+        }
+        else { AS.anim.SetBool("isJumping", false); }
+    }
+
+    void PushAnim()
+    {
+        if (RCF.currentHitObject != null && RCJ.isGrounded && RCF.currentHitObject.CompareTag("Pushable"))
+        {
+            AS.anim.SetBool("isAgainstBox", true);
+        }
+        else
+        {
+            AS.anim.SetBool("isAgainstBox", false);
+        }
+
+        if (AS.anim.GetBool("isAgainstBox") == true && direction.magnitude >= 0.1f)
+        {
+            AS.anim.SetBool("isPushing", true);
+        }
+        else
+        {
+            AS.anim.SetBool("isPushing", false);
+            AS.anim.SetBool("isAgainstBox", false);
         }
     }
 }

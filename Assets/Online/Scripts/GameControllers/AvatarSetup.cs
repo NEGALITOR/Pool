@@ -1,6 +1,7 @@
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class AvatarSetup : MonoBehaviour
@@ -8,6 +9,7 @@ public class AvatarSetup : MonoBehaviour
     private PhotonView PV;
     public int characterValue;
     public GameObject myCharacter;
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -16,15 +18,16 @@ public class AvatarSetup : MonoBehaviour
 
         if (PV.IsMine)
         {
-            PV.RPC("RPC_AddCharacter", RpcTarget.AllBuffered, PlayerInfo.PI.mySelectedCharacter);
+            AddCharacter(PlayerInfo.PI.mySelectedCharacter);
         }
     }
 
-    [PunRPC]
-    void RPC_AddCharacter(int whichCharacter)
+    void AddCharacter(int whichCharacter)
     {
         characterValue = whichCharacter;
-        myCharacter = Instantiate(PlayerInfo.PI.allCharacters[whichCharacter], transform.position, transform.rotation, transform);
+        myCharacter = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", PlayerInfo.PI.allCharacters[whichCharacter]), transform.position, transform.rotation);
+        myCharacter.transform.parent = gameObject.transform;
+        anim = myCharacter.GetComponent<Animator>();
         Debug.Log(myCharacter);
 
     }

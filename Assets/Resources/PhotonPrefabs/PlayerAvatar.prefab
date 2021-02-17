@@ -154,7 +154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  rCastJ: {fileID: 556116503214687297}
+  RCJ: {fileID: 0}
+  RCF: {fileID: 0}
   pSpeed: 12
   jumpPower: 7
   turnSmoothTime: 0.1
@@ -278,6 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterValue: 0
   myCharacter: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!114 &4585066333694179342
 MonoBehaviour:
   m_ObjectHideFlags: 0
