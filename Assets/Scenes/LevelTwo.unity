@@ -863,11 +863,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orange Portal (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6576455718916220734, guid: 59056ea97b0b25e4f90aa24fa8f4dfff, type: 3}
+      propertyPath: otherPortal
+      value: 
+      objectReference: {fileID: 888134009}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59056ea97b0b25e4f90aa24fa8f4dfff, type: 3}
 --- !u!4 &272054521 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5768991333434146427, guid: 59056ea97b0b25e4f90aa24fa8f4dfff, type: 3}
+  m_PrefabInstance: {fileID: 272054520}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &272054522 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6576455718916220097, guid: 59056ea97b0b25e4f90aa24fa8f4dfff, type: 3}
   m_PrefabInstance: {fileID: 272054520}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &301229316
@@ -933,11 +942,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orange Portal
       objectReference: {fileID: 0}
+    - target: {fileID: 6576455718916220734, guid: 59056ea97b0b25e4f90aa24fa8f4dfff, type: 3}
+      propertyPath: otherPortal
+      value: 
+      objectReference: {fileID: 1331119793}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59056ea97b0b25e4f90aa24fa8f4dfff, type: 3}
 --- !u!4 &301229317 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5768991333434146427, guid: 59056ea97b0b25e4f90aa24fa8f4dfff, type: 3}
+  m_PrefabInstance: {fileID: 301229316}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &301229318 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6576455718916220097, guid: 59056ea97b0b25e4f90aa24fa8f4dfff, type: 3}
   m_PrefabInstance: {fileID: 301229316}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &314677460
@@ -1660,11 +1678,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blue Portal (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8240211493407492815, guid: 0dbaa6bf2b3939842aa32127d2f4258b, type: 3}
+      propertyPath: otherPortal
+      value: 
+      objectReference: {fileID: 272054522}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0dbaa6bf2b3939842aa32127d2f4258b, type: 3}
 --- !u!4 &888134008 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8240211493407492803, guid: 0dbaa6bf2b3939842aa32127d2f4258b, type: 3}
+  m_PrefabInstance: {fileID: 888134007}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &888134009 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8240211493407492808, guid: 0dbaa6bf2b3939842aa32127d2f4258b, type: 3}
   m_PrefabInstance: {fileID: 888134007}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1000614966
@@ -2308,11 +2335,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blue Portal
       objectReference: {fileID: 0}
+    - target: {fileID: 8240211493407492815, guid: 0dbaa6bf2b3939842aa32127d2f4258b, type: 3}
+      propertyPath: otherPortal
+      value: 
+      objectReference: {fileID: 301229318}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0dbaa6bf2b3939842aa32127d2f4258b, type: 3}
 --- !u!4 &1331119792 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8240211493407492803, guid: 0dbaa6bf2b3939842aa32127d2f4258b, type: 3}
+  m_PrefabInstance: {fileID: 1331119791}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1331119793 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8240211493407492808, guid: 0dbaa6bf2b3939842aa32127d2f4258b, type: 3}
   m_PrefabInstance: {fileID: 1331119791}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1530429063
