@@ -36,6 +36,7 @@ public class DoorActivation : MonoBehaviour
     {
         if (RCF.currentHitObject.CompareTag("Chest 1"))
         {
+            RCF.currentHitObject.GetComponent<Animator>().SetBool("isOpen", true);
             chestNum = "1";
             doorNum = "1";
             chest = GameObject.FindGameObjectWithTag("Chest " + chestNum);
@@ -44,6 +45,7 @@ public class DoorActivation : MonoBehaviour
         }
         if (RCF.currentHitObject.CompareTag("Chest 2"))
         {
+            RCF.currentHitObject.GetComponent<Animator>().SetBool("isOpen", true);
             chestNum = "2";
             doorNum = "2";
             chest = GameObject.FindGameObjectWithTag("Chest " + chestNum);
