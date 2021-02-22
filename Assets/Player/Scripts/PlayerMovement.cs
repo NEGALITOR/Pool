@@ -38,8 +38,8 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AS = GetComponent<AvatarSetup>();
         cam = Camera.main.transform;
+        AS = GetComponent<AvatarSetup>();
 
         //Cursor.visible = false;
         //Cursor.lockState = CursorLockMode.Locked;

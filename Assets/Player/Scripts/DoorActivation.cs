@@ -1,13 +1,17 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class DoorActivation : MonoBehaviour
 {
     public RayCastForward RCF;
+    private PhotonView PV;
     public bool isActive;
     public GameObject door;
     public GameObject chest;
+    public GameObject sceneSwitcher;
     public string doorNum = "1";
     public string chestNum = "1";
     public Rigidbody doorRb;
@@ -17,11 +21,13 @@ public class DoorActivation : MonoBehaviour
     void Start()
     {
         RCF = GetComponent<RayCastForward>();
+        PV = GetComponent<PhotonView>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (isActive)
         {
             if (RCF.currentHitObject != null && RCF.currentHitObject.layer == LayerMask.NameToLayer("Chest") &&  Input.GetKeyUp(KeyCode.E))
@@ -42,6 +48,7 @@ public class DoorActivation : MonoBehaviour
             chest = GameObject.FindGameObjectWithTag("Chest " + chestNum);
             door = GameObject.FindGameObjectWithTag("Door " + doorNum);
             doorRb = door.GetComponent<Rigidbody>();
+            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "SceneSwitch"), door.transform.position - new Vector3(0, 0, -1), door.transform.rotation);
         }
         if (RCF.currentHitObject.CompareTag("Chest 2"))
         {

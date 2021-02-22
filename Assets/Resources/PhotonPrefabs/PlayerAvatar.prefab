@@ -261,6 +261,7 @@ MonoBehaviour:
   isActive: 1
   door: {fileID: 0}
   chest: {fileID: 0}
+  sceneSwitcher: {fileID: 0}
   doorNum: 1
   chestNum: 1
   doorRb: {fileID: 0}

@@ -232,12 +232,12 @@ public class PhotonRoomCustomMatch : MonoBehaviourPunCallbacks, IInRoomCallbacks
     void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)
     {
         currentScene = scene.buildIndex;
-        if (currentScene == MultiplayerSetting.MS.multiplayerScene)
+        if (currentScene > 0)//MultiplayerSetting.MS.multiplayerScene
         {
             isGameLoaded = true;
 
             if (MultiplayerSetting.MS.delayStart)
-            {
+            {w
                 PV.RPC("RPC_LoadedGameScene", RpcTarget.MasterClient);
             }
             else
@@ -295,8 +295,11 @@ public class PhotonRoomCustomMatch : MonoBehaviourPunCallbacks, IInRoomCallbacks
     }
 
     [PunRPC]
-    private void RPC_CreatePlayer()
+    public void RPC_CreatePlayer()
     {
         PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Player"), new Vector3(0, 1, 0), Quaternion.identity, 0);
+        Debug.Log(PhotonNetwork.LocalPlayer.UserId);
+        Debug.Log(PhotonNetwork.PlayerList[0].UserId);
+        Debug.Log(PhotonNetwork.PlayerList[1].UserId);
     }
 }
