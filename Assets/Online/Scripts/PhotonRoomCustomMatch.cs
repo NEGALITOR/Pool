@@ -237,7 +237,7 @@ public class PhotonRoomCustomMatch : MonoBehaviourPunCallbacks, IInRoomCallbacks
             isGameLoaded = true;
 
             if (MultiplayerSetting.MS.delayStart)
-            {w
+            {
                 PV.RPC("RPC_LoadedGameScene", RpcTarget.MasterClient);
             }
             else

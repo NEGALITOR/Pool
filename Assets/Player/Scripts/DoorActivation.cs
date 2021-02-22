@@ -33,7 +33,7 @@ public class DoorActivation : MonoBehaviour
             if (RCF.currentHitObject != null && RCF.currentHitObject.layer == LayerMask.NameToLayer("Chest") &&  Input.GetKeyUp(KeyCode.E))
             {
                 DoorCheck();
-                StartCoroutine(DoorRotation());
+                
             }
         }
     }
@@ -48,6 +48,7 @@ public class DoorActivation : MonoBehaviour
             chest = GameObject.FindGameObjectWithTag("Chest " + chestNum);
             door = GameObject.FindGameObjectWithTag("Door " + doorNum);
             doorRb = door.GetComponent<Rigidbody>();
+            StartCoroutine(DoorRotation());
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "SceneSwitch"), door.transform.position - new Vector3(0, 0, -1), door.transform.rotation);
         }
         if (RCF.currentHitObject.CompareTag("Chest 2"))
@@ -57,6 +58,7 @@ public class DoorActivation : MonoBehaviour
             doorNum = "2";
             chest = GameObject.FindGameObjectWithTag("Chest " + chestNum);
             door = GameObject.FindGameObjectWithTag("Door " + doorNum);
+            StartCoroutine(DoorRotation());
             doorRb = door.GetComponent<Rigidbody>();
         }
     }
