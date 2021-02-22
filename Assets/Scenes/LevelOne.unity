@@ -696,7 +696,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 413402962}
-  m_LocalRotation: {x: 0.33228764, y: -0.025304819, z: 0.008918658, w: 0.9427964}
+  m_LocalRotation: {x: 0.3322876, y: -0.02530476, z: 0.0089186365, w: 0.94279647}
   m_LocalPosition: {x: 0.28462565, y: 12.89, z: -20.298405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1632,15 +1632,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1999813532866159908, guid: 18708b4bad2680b4faeb09f429020a3f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.33228758
+      value: 0.3322876
       objectReference: {fileID: 0}
     - target: {fileID: 1999813532866159908, guid: 18708b4bad2680b4faeb09f429020a3f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.025304819
+      value: -0.02530477
       objectReference: {fileID: 0}
     - target: {fileID: 1999813532866159908, guid: 18708b4bad2680b4faeb09f429020a3f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.008918655
+      value: 0.008918637
       objectReference: {fileID: 0}
     - target: {fileID: 1999813533260779351, guid: 18708b4bad2680b4faeb09f429020a3f, type: 3}
       propertyPath: m_RootOrder
@@ -1776,11 +1776,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1999813534310503671, guid: 18708b4bad2680b4faeb09f429020a3f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.025138427
+      value: -0.025138393
       objectReference: {fileID: 0}
     - target: {fileID: 1999813534310503671, guid: 18708b4bad2680b4faeb09f429020a3f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.009377471
+      value: 0.009377459
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18708b4bad2680b4faeb09f429020a3f, type: 3}
@@ -3300,7 +3300,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736334351}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-<<<<<<< Updated upstream
 --- !u!1001 &1966772599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3452,5 +3451,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86dd9174bee106e40a522035d2e7c44b, type: 3}
-=======
->>>>>>> Stashed changes

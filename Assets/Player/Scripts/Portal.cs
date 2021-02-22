@@ -5,13 +5,13 @@ using UnityEngine;
 public class Portal : MonoBehaviour
 {
     public GameObject otherPortal;
-    private bool cooldown = false;
-    //public Vector3 offSet;
+    private bool cooldown = true;
+    public Vector3 offSet;
     
     // Start is called before the first frame update
     void Start()
     {
-        //Vector3 offSet = new Vector3(0.0f, 0.0f, 25.0f);
+        Vector3 offSet = new Vector3(0.0f, 0.0f, 25.0f);
     }
 
     // Update is called once per frame
@@ -22,16 +22,16 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && cooldown == false)
+        if (other.CompareTag("Player") && cooldown == true)
         {
-            other.transform.position = otherPortal.transform.position;
-            otherPortal.GetComponent<Portal>().cooldown = true;
-            Invoke("CoolDown", 5.0f);
+            other.transform.position = otherPortal.transform.position + offSet;
+            cooldown = false;
+            Invoke("CoolDown", 1.0f);
         }
     }
 
     void CoolDown()
     {
-        cooldown = false;
+        cooldown = true;
     }
 }
