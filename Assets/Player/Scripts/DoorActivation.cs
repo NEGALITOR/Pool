@@ -27,7 +27,6 @@ public class DoorActivation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (isActive)
         {
             if (RCF.currentHitObject != null && RCF.currentHitObject.layer == LayerMask.NameToLayer("Chest") &&  Input.GetKeyUp(KeyCode.E))
@@ -42,7 +41,7 @@ public class DoorActivation : MonoBehaviour
     {
         if (RCF.currentHitObject.CompareTag("Chest 1"))
         {
-            RCF.currentHitObject.GetComponent<Animator>().SetBool("isOpen", true);
+            PV.RPC("RPC_ChestAnimation", RpcTarget.AllBuffered);
             chestNum = "1";
             doorNum = "1";
             chest = GameObject.FindGameObjectWithTag("Chest " + chestNum);
@@ -52,7 +51,7 @@ public class DoorActivation : MonoBehaviour
         }
         if (RCF.currentHitObject.CompareTag("Chest 2"))
         {
-            RCF.currentHitObject.GetComponent<Animator>().SetBool("isOpen", true);
+            PV.RPC("RPC_ChestAnimation", RpcTarget.AllBuffered);
             chestNum = "2";
             doorNum = "2";
             chest = GameObject.FindGameObjectWithTag("Chest " + chestNum);
@@ -69,5 +68,12 @@ public class DoorActivation : MonoBehaviour
             door.transform.Rotate(0, 45f * Time.deltaTime, 0);
             yield return new WaitForEndOfFrame();
         }
+    }
+
+    [PunRPC]
+    
+    void RPC_ChestAnimation() 
+    {
+        RCF.currentHitObject.GetComponent<Animator>().SetBool("isOpen", true);
     }
 }
