@@ -17,6 +17,8 @@ public class DoorActivation : MonoBehaviour
     public Rigidbody doorRb;
     public List<GameObject> doorCount;
     public float currentRotation;
+    public Vector3 offset;
+    private bool turned = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,10 +33,10 @@ public class DoorActivation : MonoBehaviour
 
         if (isActive)
         {
-            if (RCF.currentHitObject != null && RCF.currentHitObject.layer == LayerMask.NameToLayer("Chest") &&  Input.GetKeyDown(KeyCode.E))
+            if (RCF.currentHitObject != null && RCF.currentHitObject.layer == LayerMask.NameToLayer("Chest") && Input.GetKeyDown(KeyCode.E))
             {
                 DoorCheck();
-                
+
             }
         }
     }
@@ -45,6 +47,7 @@ public class DoorActivation : MonoBehaviour
         {
             chestNum = "1";
             doorNum = "1";
+
             PV.RPC("RPC_ChestDoor", RpcTarget.All, chestNum, doorNum);
         }
         if (RCF.currentHitObject.CompareTag("Chest 2"))
@@ -60,7 +63,28 @@ public class DoorActivation : MonoBehaviour
         while (door.transform.eulerAngles.y < (currentRotation + 90))
         {
             door.transform.Rotate(0, 45f * Time.deltaTime, 0);
+            turned = true;
             yield return new WaitForEndOfFrame();
+        }
+    }
+
+    void RotationChecker()
+    {
+        if (door.transform.eulerAngles.y >= 270)
+        {
+            offset = new Vector3(-1, 0, 0);
+        }
+        else if (door.transform.eulerAngles.y >= 180)
+        {
+            offset = new Vector3(0, 0, -1);
+        }
+        else if (door.transform.eulerAngles.y >= 90)
+        {
+            offset = new Vector3(1, 0, 0);
+        }
+        else
+        {
+            offset = new Vector3(0, 0, 1);
         }
     }
 
@@ -70,14 +94,19 @@ public class DoorActivation : MonoBehaviour
         chest = GameObject.FindGameObjectWithTag("Chest " + chestNumber);
         door = GameObject.FindGameObjectWithTag("Door " + doorNumber);
         doorRb = door.GetComponent<Rigidbody>();
+        RotationChecker();
         if (PhotonNetwork.IsMasterClient)
         {
             chest.GetComponent<Animator>().SetBool("isOpen", true);
-            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "SceneSwitch"), door.transform.position - new Vector3(0, 0, -1), door.transform.rotation);
-            currentRotation = door.transform.eulerAngles.y;
-            StartCoroutine(DoorRotation());
+            if (turned == false)
+            {
+                PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "SceneSwitch"), door.transform.position + offset, door.transform.rotation);
+                currentRotation = door.transform.eulerAngles.y;
+                StartCoroutine(DoorRotation());
+            }
         }
-        
-        
+
+
     }
+
 }

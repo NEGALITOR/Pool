@@ -37,8 +37,10 @@ public class Invincibility : MonoBehaviour
         {
             IEnumerator TimeCounter()
             {
+                transform.GetChild(2).gameObject.SetActive(true);
                 charge = true;
                 yield return new WaitForSeconds(10f);
+                transform.GetChild(2).gameObject.SetActive(false);
                 charge = false;
             }
             StartCoroutine(TimeCounter());

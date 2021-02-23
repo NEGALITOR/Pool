@@ -35,6 +35,7 @@ public class Cryoblock : MonoBehaviour
         if (RCJ.currentHitObject != null && RCJ.currentHitObject.CompareTag("CryoPool"))
         {
             charge = true;
+            transform.GetChild(0).gameObject.SetActive(true);
         }
 
         if (charge == true)
@@ -59,6 +60,7 @@ public class Cryoblock : MonoBehaviour
                 spawnedBlock.RemoveAll(spawnedBlock => spawnedBlock == null);
                 spawnedBlock[0].GetComponent<Animator>().SetBool("isActive", false);
 
+                transform.GetChild(0).gameObject.SetActive(false);
                 charge = false;
             }
 

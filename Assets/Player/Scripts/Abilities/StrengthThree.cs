@@ -27,9 +27,13 @@ public class StrengthThree : MonoBehaviour
         if (RCJ.currentHitObject != null && RCJ.currentHitObject.CompareTag("StrengthPool"))
         {
             charge = true;
+            transform.GetChild(1).gameObject.SetActive(true);
         }
         if (charge == true && Input.GetKeyDown(KeyCode.E))
         {
+            transform.GetChild(1).gameObject.SetActive(false);
+            charge = false;
+
             if (RCF.currentHitObject != null && RCF.currentHitObject.CompareTag("BreakableWall"))
             {
                 PV.RPC("RPC_StrengthCheck", RpcTarget.All, new object[] { RCF.currentHitObject.GetComponent<PhotonView>().ViewID });
