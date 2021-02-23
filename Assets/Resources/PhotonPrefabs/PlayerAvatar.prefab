@@ -266,6 +266,7 @@ MonoBehaviour:
   chestNum: 1
   doorRb: {fileID: 0}
   doorCount: []
+  currentRotation: 0
 --- !u!114 &-8569429325498294115
 MonoBehaviour:
   m_ObjectHideFlags: 0

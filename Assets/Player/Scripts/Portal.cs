@@ -26,12 +26,12 @@ public class Portal : MonoBehaviour
         {
             other.transform.position = otherPortal.transform.position;
             otherPortal.GetComponent<Portal>().cooldown = true;
-            Invoke("CoolDown", 5.0f);
+            Invoke("CoolDown", 3.0f);
         }
     }
 
     void CoolDown()
     {
-        cooldown = false;
+        otherPortal.GetComponent<Portal>().cooldown = false;
     }
 }

@@ -16,6 +16,7 @@ public class DoorActivation : MonoBehaviour
     public string chestNum = "1";
     public Rigidbody doorRb;
     public List<GameObject> doorCount;
+    public float currentRotation;
 
     // Start is called before the first frame update
     void Start()
@@ -30,10 +31,10 @@ public class DoorActivation : MonoBehaviour
 
         if (isActive)
         {
-            if (RCF.currentHitObject != null && RCF.currentHitObject.layer == LayerMask.NameToLayer("Chest") &&  Input.GetKeyUp(KeyCode.E))
+            if (RCF.currentHitObject != null && RCF.currentHitObject.layer == LayerMask.NameToLayer("Chest") &&  Input.GetKeyDown(KeyCode.E))
             {
                 DoorCheck();
-                StartCoroutine(DoorRotation());
+                
             }
         }
     }
@@ -42,32 +43,41 @@ public class DoorActivation : MonoBehaviour
     {
         if (RCF.currentHitObject.CompareTag("Chest 1"))
         {
-            RCF.currentHitObject.GetComponent<Animator>().SetBool("isOpen", true);
             chestNum = "1";
             doorNum = "1";
-            chest = GameObject.FindGameObjectWithTag("Chest " + chestNum);
-            door = GameObject.FindGameObjectWithTag("Door " + doorNum);
-            doorRb = door.GetComponent<Rigidbody>();
-            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "SceneSwitch"), door.transform.position - new Vector3(0, 0, -1), door.transform.rotation);
+            PV.RPC("RPC_ChestDoor", RpcTarget.All, chestNum, doorNum);
         }
         if (RCF.currentHitObject.CompareTag("Chest 2"))
         {
-            RCF.currentHitObject.GetComponent<Animator>().SetBool("isOpen", true);
             chestNum = "2";
             doorNum = "2";
-            chest = GameObject.FindGameObjectWithTag("Chest " + chestNum);
-            door = GameObject.FindGameObjectWithTag("Door " + doorNum);
-            doorRb = door.GetComponent<Rigidbody>();
+            PV.RPC("RPC_ChestDoor", RpcTarget.All, chestNum, doorNum);
         }
     }
 
     IEnumerator DoorRotation()
     {
-        float currentRotation = door.transform.eulerAngles.y;
         while (door.transform.eulerAngles.y < (currentRotation + 90))
         {
             door.transform.Rotate(0, 45f * Time.deltaTime, 0);
             yield return new WaitForEndOfFrame();
         }
+    }
+
+    [PunRPC]
+    void RPC_ChestDoor(string chestNumber, string doorNumber)
+    {
+        chest = GameObject.FindGameObjectWithTag("Chest " + chestNumber);
+        door = GameObject.FindGameObjectWithTag("Door " + doorNumber);
+        doorRb = door.GetComponent<Rigidbody>();
+        if (PhotonNetwork.IsMasterClient)
+        {
+            chest.GetComponent<Animator>().SetBool("isOpen", true);
+            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "SceneSwitch"), door.transform.position - new Vector3(0, 0, -1), door.transform.rotation);
+            currentRotation = door.transform.eulerAngles.y;
+            StartCoroutine(DoorRotation());
+        }
+        
+        
     }
 }
